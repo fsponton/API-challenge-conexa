@@ -1,6 +1,6 @@
 const express = require("express")
 const connection = require("./config/DDBB/connection")
-const cors = require("cors")
+
 
 //conexion  DDBB
 connection();

@@ -1,27 +1,19 @@
-//Requerir Modelo de user
 const User = require("../models/UserSchema")
+const validator = require('validator');
+const { findAndSave } = require("../repositories/userRepository");
 
-const register_user = (req, res) => {
+const register_user = async (req, res) => {
     try {
         const { email, password } = req.body;
 
+        if (!validator.isEmail(email)) return res.status(400).json({ status: "error", message: "email no valido" })
         if (!email || !password) { return res.status(400).json({ status: "error", message: "faltan datos" }) };
+        const newUser = await findAndSave({ email, password });
 
-        //Crea usuario en memo
-        const newUser = new User({ email, password })
-
-        //Busca usuario, si no esta lo crea. 
-        User.findOne({ email }).then((user) => {
-            if (user) return res.status(404).json({ status: "error", message: "usuario existente" })
-            //agregar hash de pw y mandar
-            newUser.save()
-            return res.status(200).json({ status: "success", message: "creado", newUser })
-        })
-
+        return res.status(200).json({ status: "success", message: "creado", newUser })
     } catch (err) {
-        return res.status(400).json({ status: "error", message: err.message })
+        return res.status(500).json({ status: "error", message: err.message })
     }
-
 }
 
 

@@ -17,7 +17,6 @@ router.post("/auth", user_auth.auth_user);
 router.get("/list", userExtractor, list.list_users);
 
 
-
 //exportar router
 module.exports = router
 

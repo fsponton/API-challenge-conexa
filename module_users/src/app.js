@@ -1,14 +1,11 @@
 const express = require("express")
-const connection = require("./config/DDBB/connection")
+// const connection = require("./config/DDBB/connection")
 const cors = require("cors")
 
-//conexion  DDBB
-connection();
+// connection();
 
-//servidor node
 const app = express();
 
-//configure cors
 app.use(cors());
 
 //convertir datos de body a obj js

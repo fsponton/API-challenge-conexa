@@ -1,13 +1,9 @@
-//Requerir Modelo de user
-const User = require("../models/UserSchema")
+const { findAll } = require("../repositories/userRepository")
 
-
-const list_users = (req, res) => {
+const list_users = async (req, res) => {
     try {
-        User.find({}).then((users) => {
-            return res.status(200).json({ users })
-        })
-
+        const users = await findAll();
+        return res.status(200).json(users)
     } catch (err) {
         return res.status(500).json({ status: "error", message: err.message })
     }

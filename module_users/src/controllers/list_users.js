@@ -1,5 +1,3 @@
-//Requerir Modelo de user
-const User = require("../models/UserSchema")
 const axios = require("axios")
 
 const list_users = async (req, res) => {

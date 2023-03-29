@@ -1,9 +1,8 @@
 const User = require("../models/UserSchema")
 
-
-const findOne = async ({ email }) => {
+const findAll = async () => {
     try {
-        return await User.findOne({ email })
+        return await User.find({}, { _id: 1, email: 1 })
     } catch (err) {
         throw err
     }
@@ -11,5 +10,5 @@ const findOne = async ({ email }) => {
 
 
 module.exports = {
-    findOne
+    findAll
 }
