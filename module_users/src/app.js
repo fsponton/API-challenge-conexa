@@ -1,18 +1,11 @@
 const express = require("express")
-// const connection = require("./config/DDBB/connection")
+const app = express();
 const cors = require("cors")
 
-// connection();
-
-const app = express();
-
 app.use(cors());
-
-//convertir datos de body a obj js
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true })) // cualquier dato que llegue en urlencoded lo pasa a json
 
-//cargar conf rutas
 const register_route = require("./routes/user")
 const login_route = require("./routes/user")
 const list_route = require("./routes/user")

@@ -14,8 +14,8 @@ const findOne = async ({ email }) => {
 
 const findAndSave = async ({ email, password }) => {
     const emailToLower = email.toLowerCase()
-    const exist_user = await findOne({ email: emailToLower })
-    if (exist_user) throw new Error("usuario existente")
+    const user = await findOne({ email: emailToLower })
+    if (user) throw new Error("email is already used")
 
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt)
@@ -33,8 +33,8 @@ const findandAuthenticated = async ({ email, password }) => {
     const encryptedPassword = newUser === null ? false
         : await bcrypt.compare(password, newUser.password)
 
-    if (!encryptedPassword) throw new Error("usuario  o password invalidos")
 
+    if (!encryptedPassword) throw new Error("user or password is incorrect")
 
     const userForToken = {
         id: newUser._id,
@@ -42,14 +42,8 @@ const findandAuthenticated = async ({ email, password }) => {
     }
     const token = jwt.sign(userForToken, `${SECRET_WORD}`, { expiresIn: 60 * 60 })
 
-    const user = {
-        ...userForToken, token
-    }
-
-    return (user)
-
+    return ({ ...userForToken, token })
 }
-
 
 module.exports = {
     findOne,

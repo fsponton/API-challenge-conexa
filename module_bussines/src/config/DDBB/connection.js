@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const { URI } = require("../enviroment")
 
-const connection = () => {
+const connection = async () => {
     try {
-        console.log({ URI })
         mongoose.set('strictQuery', false);
-        mongoose.connect(`${URI}`, { useNewUrlParser: true })
-        console.log("conexion exitosa con db: db_conexa")
+        await mongoose.connect(`${URI}`, { useNewUrlParser: true })
+        console.log("the connection with database: db_conexa has been stablished")
     } catch (err) {
-        console.log(err)
+        console.log(err.message)
+        throw new Error("connection refused")
     }
 }
 

@@ -10,7 +10,6 @@ const list_users = async (req, res) => {
 
 }
 
-
 module.exports = {
     list_users
 }

@@ -5,5 +5,5 @@ connection();
 
 
 app.listen(`${PORT_USERS}`, () => {
-    console.log(`API listening on ${PORT_USERS}`)
+    console.log(`API Users listening on ${PORT_USERS}`)
 })
