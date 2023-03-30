@@ -13,8 +13,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 const list_route = require("./routes/routes_list")
+const find_user = require("./routes/routes_list")
 
 app.use("/api/negocio", list_route)
+app.use("/api/negocio", find_user)
 
 module.exports = {
     app
