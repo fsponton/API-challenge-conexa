@@ -1,8 +1,15 @@
 const User = require("../models/UserSchema")
 
-const findAll = async () => {
+const findAll = async ({ page, limit }) => {
     try {
-        return await User.find({}, { _id: 1, email: 1 })
+        const users = await User.find({}, { _id: 1, email: 1 }).limit(limit).skip((page - 1) * limit)
+        const count = await User.count()
+        return ({
+            users,
+            totalPages: Math.ceil(count / limit),
+            currentPage: page
+        })
+
     } catch (err) {
         throw err
     }
