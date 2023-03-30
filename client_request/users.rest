@@ -1,0 +1,33 @@
+### Register User
+POST http://localhost:7777/API/user/register
+Content-Type: application/json
+
+{
+"email":"fran.sponton@gmail.com", 
+"password":"123456"
+}
+
+###Login User 
+POST  http://localhost:7777/API/user/auth 
+Content-Type: application/json
+
+{
+"email":"fran.sponton@gmail.com", 
+"password":"123456"
+}
+
+###List Users with pages and limits
+GET  http://localhost:7777/API/user/list?page=1&limit=2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjU5NDk4MTJhNjM3MDliNzYyYTNjMSIsIm1haWwiOiJmcmFuLnNwb250b25AZ21haWwuY29tIiwiaWF0IjoxNjgwMTg0ODkzLCJleHAiOjE2ODAxODg0OTN9.dAUflnD0wYr1js06soiLmFUoPvRrY2pyAGAKPiSZb34
+
+{
+"email":"fran.sponton@gmail.com", 
+"password":"123456"
+}
+
+
+### Get User by email 
+GET http://localhost:7777/API/user?email=fran.sponton@gmail.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjU5NDk4MTJhNjM3MDliNzYyYTNjMSIsIm1haWwiOiJmcmFuLnNwb250b25AZ21haWwuY29tIiwiaWF0IjoxNjgwMTg0ODkzLCJleHAiOjE2ODAxODg0OTN9.dAUflnD0wYr1js06soiLmFUoPvRrY2pyAGAKPiSZb34
