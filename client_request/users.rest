@@ -3,7 +3,7 @@ POST http://localhost:7777/API/user/register
 Content-Type: application/json
 
 {
-"email":"fran.sponton@gmail.com", 
+"email":"franciscos@gmail.com", 
 "password":"123456"
 }
 
@@ -12,22 +12,18 @@ POST  http://localhost:7777/API/user/auth
 Content-Type: application/json
 
 {
-"email":"fran.sponton@gmail.com", 
+"email":"franciscos@gmail.com", 
 "password":"123456"
 }
+
+
 
 ###List Users with pages and limits
-GET  http://localhost:7777/API/user/list?page=1&limit=2
+GET  http://localhost:7777/API/user/list?page=5&limit=4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjU5NDk4MTJhNjM3MDliNzYyYTNjMSIsIm1haWwiOiJmcmFuLnNwb250b25AZ21haWwuY29tIiwiaWF0IjoxNjgwMTg0ODkzLCJleHAiOjE2ODAxODg0OTN9.dAUflnD0wYr1js06soiLmFUoPvRrY2pyAGAKPiSZb34
-
-{
-"email":"fran.sponton@gmail.com", 
-"password":"123456"
-}
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjYyMDMxYmVmMTllYTEwYjk1N2IyNCIsIm1haWwiOiJmcmFuY2lzY29zQGdtYWlsLmNvbSIsImlhdCI6MTY4MDI2ODY1OSwiZXhwIjoxNjgwMjcyMjU5fQ.H9Vqmw3lvnLLhrALevvLWvIJXDpBlrDMrsTM6U5_qPk
 
 ### Get User by email 
-GET http://localhost:7777/API/user?email=fran.sponton@gmail.com
+GET http://localhost:7777/API/user?email=franciscos@gmail.com
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjU5NDk4MTJhNjM3MDliNzYyYTNjMSIsIm1haWwiOiJmcmFuLnNwb250b25AZ21haWwuY29tIiwiaWF0IjoxNjgwMTg0ODkzLCJleHAiOjE2ODAxODg0OTN9.dAUflnD0wYr1js06soiLmFUoPvRrY2pyAGAKPiSZb34
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjYyMDMxYmVmMTllYTEwYjk1N2IyNCIsIm1haWwiOiJmcmFuY2lzY29zQGdtYWlsLmNvbSIsImlhdCI6MTY4MDIyMDIyNSwiZXhwIjoxNjgwMjIzODI1fQ.5Z_8Sp9yKpmyX9vs0Vfh8WCZFP3JUFil11WkYrmY31I
